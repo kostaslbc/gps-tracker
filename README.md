@@ -10,7 +10,7 @@ fpv planes, drones, cars
 
 ## 🔧 Hardware Needed
 
-Lora V3 (haltec Board) X2
+Lora 32 - V3 (heltec Board) X2
 Any GPS module with Nmea protocol
 A single Buzzer
 A lipo battery 1 cell (1000 up to 2000 mah)
