@@ -21,6 +21,7 @@ Fpv planes, drones, cars  etc.
    Power up with usb type C small power bank, flash lora board with receiver file and you are done !
 
 3. Sender.
+   
    Connect GPS TX pin to PIN 20 of the lora board.
    Connect also GPS ground and Vcc to ground and Vcc of the lora board.
    Connect BUZZER to PIN 36 of the lora board.
