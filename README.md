@@ -17,6 +17,7 @@ Fpv planes, drones, cars  etc.
 
 # Connections
 1. Receiver.
+   
    No connections needed.
    Power up with usb type C small power bank, flash lora board with receiver file and you are done !
 
