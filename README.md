@@ -17,8 +17,8 @@ fpv planes, drones, cars
 
 # How to install
 1. Download all files and extract them to a single directory. For example C:\\gps_tracker.
-2. Double click Upload Receiver_File_433.bat for receiver board.
-3. Double click Upload Sender_File_433.bat for the sender board.
+2. Double click Upload Receiver_File_433.bat for receiver board. This will flash Receiver board.
+3. Double click Upload Sender_File_433.bat for the sender board. This will flash Sender board.
       
 # Photos
 ![IMG_20250905_181709-EDIT](https://github.com/user-attachments/assets/d7cca124-4c34-4698-9a94-eae1d5b39b18)
