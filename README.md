@@ -51,9 +51,9 @@ the buzzer for 30 seconds.
  Working frequency is 433 Mhz 
 
 # Bands 
- 868 MHz → (Europe) 
- 915 MHz family (902–928 MHz) → USA, Canada, AU, NZ, LATAM, China, India, South Africa → 100 mW licence-free is OK.
- 433 MHz (please check your local regulations)
+ 1. 868 MHz → (Europe) 
+ 2. 915 MHz family (902–928 MHz) → USA, Canada, AU, NZ, LATAM, China, India, South Africa → 100 mW licence-free is OK.
+ 3. 433 MHz (please check your local regulations)
 
 Japan → ❌ Limited to 20 mW in 920–928 MHz; 100 mW not allowed without licence.
 
