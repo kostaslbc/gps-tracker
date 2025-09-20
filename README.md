@@ -29,7 +29,7 @@ The on board led blinks when a signal is received.
 
 Sender:
 The gps values are send when change location happens.
-When the on board PRF button is pressed for more than 5 seconds the receiver will start siren via
+When the on board PRG button is pressed for more than 5 seconds the receiver will start siren via
 the buzzer for 30 seconds.
 
 
