@@ -6,7 +6,7 @@ The transmitter uses a simple GPS module and has about 30 hours of battery life.
 It’s very useful for locating an airplane without relying on GSM. I know there are plenty of commercial solutions out there, but this one perfectly covers our needs in case of loss.
 
 # Target Frames  
-fpv planes, drones, cars 
+Fpv planes, drones, cars  etc. 
 
 # Hardware Needed
 1. Lora 32 - V3 (heltec Board) X2 .
@@ -19,10 +19,30 @@ fpv planes, drones, cars
 1. Download all files and extract them to a single directory. For example C:\\gps_tracker.
 2. Double click Upload Receiver_File_433.bat for receiver board. This will flash Receiver board.
 3. Double click Upload Sender_File_433.bat for the sender board. This will flash Sender board.
-      
+
+# What to expect.
+Receiver:
+The receiver shows The Latitude and Longitude of the sender board as soon as gps has locked postion.
+These values retain even if the battery is depleted.
+The screen also shows Rssi, SNR and Frequency error.
+The on board led blinks when a signal is received.
+
+Sender:
+The gps values are send when change location happens.
+When the on board PRF button is pressed for more than 5 seconds the receiver will start siren via
+the buzzer for 30 seconds.
+
+
+
 # Photos
 ![IMG_20250905_181709-EDIT](https://github.com/user-attachments/assets/d7cca124-4c34-4698-9a94-eae1d5b39b18)
 ![IMG_20250905_181648-EDIT](https://github.com/user-attachments/assets/d6fae479-c530-49b8-bfaa-dd7ed57d7808)
+
+The receiver should be powered by a small usb type C powerbank.
+
+The sender can be powered by power bank or/and by an external single cell lipo (3.7 Volt).
+More than 20 hours should be expected with 1200-1500 mah lipo cell.
+When connected by usb powerbank the battery will also be charged.
 
 
 
