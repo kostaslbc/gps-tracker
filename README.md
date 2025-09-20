@@ -8,13 +8,14 @@ It’s very useful for locating an airplane without relying on GSM. I know there
 # Target Frames  
 fpv planes, drones, cars 
 
-## 🔧 Hardware Needed
+# 🔧 Hardware Needed
+1. Lora 32 - V3 (heltec Board) X2 .
+2. Any GPS module with Nmea protocol.
+3. A single Buzzer.
+4. A lipo battery 1 cell (1000 up to 2000 mah).
+5. A plastic case.
 
-Lora 32 - V3 (heltec Board) X2
-Any GPS module with Nmea protocol
-A single Buzzer
-A lipo battery 1 cell (1000 up to 2000 mah)
-
+   
 # Photos
 
 
