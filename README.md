@@ -59,7 +59,8 @@ Max distance achieved (at 300 m altitude) → 16km.
 
 # Photos
 ![IMG_20250905_181709-EDIT](https://github.com/user-attachments/assets/d7cca124-4c34-4698-9a94-eae1d5b39b18)
-![IMG_20250905_181648-EDIT](https://github.com/user-attachments/assets/d6fae479-c530-49b8-bfaa-dd7ed57d7808)
+![IMG_20250905_181648-EDIT (1)](https://github.com/user-attachments/assets/7f6fa0d4-9617-4ab7-aeae-7e8fdeb4b9ca)
+
 
 The receiver should be powered by a small usb type C powerbank.
 
