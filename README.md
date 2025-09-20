@@ -47,8 +47,10 @@ The gps values are send when change location happens.
 When the on board PRG button is pressed for more than 5 seconds the receiver will start siren via
 the buzzer for 30 seconds.
 
+Max distance achieved (at 300 m altitude) → 16km. 
+
 # Working Frequency
- Working frequency is 433 Mhz 
+ Working frequency is 433 Mhz (other frequencies by request) 
 
 # Bands 
  1. 868 MHz → (Europe) 
