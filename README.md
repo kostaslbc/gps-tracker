@@ -47,7 +47,15 @@ The gps values are send when change location happens.
 When the on board PRG button is pressed for more than 5 seconds the receiver will start siren via
 the buzzer for 30 seconds.
 
+# Working Frequency
+ Working frequency is 433 Mhz 
 
+# Bands 
+ 868 MHz → (Europe) 
+ 915 MHz family (902–928 MHz) → USA, Canada, AU, NZ, LATAM, China, India, South Africa → 100 mW licence-free is OK.
+ 433 MHz (please check your local regulations)
+
+Japan → ❌ Limited to 20 mW in 920–928 MHz; 100 mW not allowed without licence.
 
 # Photos
 ![IMG_20250905_181709-EDIT](https://github.com/user-attachments/assets/d7cca124-4c34-4698-9a94-eae1d5b39b18)
