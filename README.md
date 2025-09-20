@@ -15,6 +15,19 @@ Fpv planes, drones, cars  etc.
 4. A lipo battery 1 cell (1000 up to 2000 mah).
 5. A plastic case.
 
+# Connections
+1. Receiver.
+   No connections needed.
+   Power up with usb type C small power bank, flash lora board with receiver file and you are done !
+
+3. Sender.
+   Connect GPS TX pin to PIN 20 of the lora board.
+   Connect also GPS ground and Vcc to ground and Vcc of the lora board.
+   Connect BUZZER to PIN 36 of the lora board.
+   Power up with usb type C small power bank or one cell lipo (3.7 Volts), flash lora board with sender file and you are done !
+   
+
+   
 # How to install
 1. Download all files and extract them to a single directory. For example C:\\gps_tracker.
 2. Double click Upload Receiver_File_433.bat for receiver board. This will flash Receiver board.
