@@ -27,13 +27,14 @@ Fpv planes, drones, cars  etc.
    2. Connect also GPS ground and Vcc to ground and Vcc of the lora board.
    3. Connect BUZZER to PIN 36 of the lora board.
    Power up with usb type C small power bank or one cell lipo (3.7 Volts), flash lora board with sender file and you are done !
-   
+   <img width="600" height="600" alt="3-1536x2048" src="https://github.com/user-attachments/assets/9a2203cd-7577-4f5f-bf55-153d5cbcd559" />
 
    
 # How to install
 1. Download all files and extract them to a single directory. For example C:\\gps_tracker.
 2. Double click Upload Receiver_File_433.bat for receiver board. This will flash Receiver board.
 3. Double click Upload Sender_File_433.bat for the sender board. This will flash Sender board.
+
 
 # What to expect.
 Receiver:
