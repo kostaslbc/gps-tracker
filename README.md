@@ -38,7 +38,7 @@ Fpv planes, drones, cars  etc.
 
 # What to expect.
 Receiver:
-The receiver shows The Latitude and Longitude of the sender board as soon as gps has locked postion.
+The receiver shows The Latitude and Longitude of the sender board as soon as gps has locked position.
 These values retain even if the battery is depleted.
 The screen also shows Rssi, SNR and Frequency error.
 The on board led blinks when a signal is received.
