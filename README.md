@@ -36,17 +36,16 @@ Fpv planes, drones, cars  etc.
 3. Double click Upload Sender_File_433.bat for the sender board. This will flash Sender board.
 
 
-# What to expect.
+# What to expect
 Receiver:
-The receiver shows The Latitude and Longitude of the sender board as soon as gps has locked position.
-These values retain even if the battery is depleted.
-The screen also shows Rssi, SNR and Frequency error.
-The on board led blinks when a signal is received.
+Displays the latitude and longitude of the sender unit once a GPS fix has been acquired.
+Coordinates remain stored and visible even if the battery is depleted.
+Screen additionally shows RSSI, SNR, and frequency error.
+The onboard LED blinks whenever a signal is received.
 
-Sender:
-The gps values are send when change location happens.
-When the on board PRG button is pressed for more than 5 seconds the receiver will start siren via
-the buzzer for 30 seconds.
+Sender
+Transmits GPS coordinates whenever the location changes.
+Holding the onboard PRG button for more than 5 seconds triggers the receiver to activate its buzzer, producing a siren for 30 seconds.
 
 Max distance achieved (at 300 m altitude) → 16km. 
 
@@ -65,8 +64,8 @@ Max distance achieved (at 300 m altitude) → 16km.
 
 The receiver should be powered by a small usb type C powerbank.
 
-The sender can be powered by power bank or/and by an external single cell lipo (3.7 Volt).
-More than 20 hours should be expected with 1200-1500 mah lipo cell.
+The sender can be powered with power bank and/or by an external single lipo cell (3.7 Volt).
+More than 20 hours should be expected with 1200-1500 mah battery.
 When connected by usb powerbank the battery will also be charged.
 
 
