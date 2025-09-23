@@ -48,7 +48,7 @@ Sender
 Transmits GPS coordinates whenever the location changes.
 Holding the onboard PRG button for more than 5 seconds triggers the receiver to activate its buzzer, producing a siren for 30 seconds.
 
-Max distance achieved (at 300 m altitude) → 16km. 
+Max distance achieved (at 500 m altitude) → 20km+ ! 
 
 # Working Frequency
  Working frequency is 433 Mhz (other frequencies by request) 
