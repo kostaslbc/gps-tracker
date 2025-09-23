@@ -1,4 +1,4 @@
-# Gps-tracker
+# Gps-tracker with map tracking via bluetooth
 A simple and reliable GPS tracker with LoraWan boards.
 
 # Description
@@ -42,6 +42,7 @@ Displays the latitude and longitude of the sender unit once a GPS fix has been a
 Coordinates remain stored and visible even if the battery is depleted.
 Screen additionally shows RSSI, SNR, and frequency error.
 The onboard LED blinks whenever a signal is received.
+Visit https://kostaslbc.github.io/ESP32GPSMap/ with your android google chrome explorer and connect to see live map data !
 
 Sender
 Transmits GPS coordinates whenever the location changes.
