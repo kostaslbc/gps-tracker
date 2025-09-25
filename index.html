@@ -44,6 +44,7 @@
             z-index: 9999;
             font-size: 14px;
         }
+       
         .leaflet-control-attribution,
         .leaflet-control-scale,
         .leaflet-control-logo { display: none !important; }
@@ -51,9 +52,9 @@
 </head>
 <body>
     <div id="buttons">
-        <button id="connectBtn">Connect GPS Tracker</button>
+        <button id="connectBtn">Connect GPS Tracker!</button>
         <button id="disconnectBtn">Disconnect</button>
-        <button id="clearBtn">Clear Trails</button>
+        <button id="clearBtn">Clear Trail</button>
         <button id="followBtn">Follow: ON</button>
     </div>
     <div id="map"></div>
@@ -62,19 +63,28 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         const EuropeBounds = [[34, 71],[65, -25]];
+
         let map = L.map('map', {
             maxBounds: EuropeBounds,
             maxBoundsViscosity: 1.0,
+            tap: true,
+            tapTolerance: 15,
             attributionControl: false
-        }).setView([40.5, 23.0], 8);
+        }).setView([54, 15], 7);
+
+        map.scrollWheelZoom.enable();
+        map.touchZoom.enable();
+        map.doubleClickZoom.enable();
+        map.boxZoom.enable();
+        map.keyboard.enable();
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-        let followMode = true;
+        let marker;
+        let trail = [];
+        let polyline;
         const MAX_TRAIL = 500;
-
-        // Per-plane storage
-        let planes = {};  // planeID -> { marker, trail, polyline }
+        let followMode = true;
 
         let bleDevice;
         let gpsCharacteristic;
@@ -100,7 +110,7 @@
                 alert("Connected!");
             } catch (err) {
                 console.error(err);
-                setStatus("Bluetooth connection failed.");
+                setStatus("Bluettoth connection failed. Please reboot tracker ");
                 alert("BLE connection failed! Please reboot tracker.");
             }
         });
@@ -112,16 +122,12 @@
             }
             bleDevice = null;
             gpsCharacteristic = null;
-            planes = {};
             alert("Disconnected!");
         });
 
         document.getElementById('clearBtn').addEventListener('click', () => {
-            for (let id in planes) {
-                if (planes[id].polyline) map.removeLayer(planes[id].polyline);
-                if (planes[id].marker) map.removeLayer(planes[id].marker);
-            }
-            planes = {};
+            trail = [];
+            if (polyline) { map.removeLayer(polyline); polyline = null; }
         });
 
         document.getElementById('followBtn').addEventListener('click', () => {
@@ -130,35 +136,28 @@
         });
 
         function handleGPSData(event) {
-            const value = event.target.value;
-            const lat = value.getFloat32(0, true);  // little-endian
-            const lng = value.getFloat32(4, true);
-            const planeID = value.getUint8(8);
+            const decoder = new TextDecoder();
+            const text = decoder.decode(event.target.value);
+            text.split("\n").forEach(line => {
+                if (line.includes(",")) {
+                    let [latStr, lngStr] = line.split(",");
+                    const lat = parseFloat(latStr.trim());
+                    const lng = parseFloat(lngStr.trim());
+                    if (!isNaN(lat) && !isNaN(lng)) {
+                        const pos = [lat, lng];
+                        if (!marker) marker = L.marker(pos).addTo(map).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`).openPopup();
+                        else marker.setLatLng(pos).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`);
 
-            const pos = [lat, lng];
+                        trail.push(pos);
+                        if (trail.length > MAX_TRAIL) trail.shift();
 
-            if (!planes[planeID]) {
-                planes[planeID] = {
-                    marker: L.marker(pos).addTo(map).bindPopup(`Plane ${planeID}<br>Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`),
-                    trail: [],
-                    polyline: L.polyline([], { color: getPlaneColor(planeID) }).addTo(map)
-                };
-            }
+                        if (polyline) polyline.setLatLngs(trail);
+                        else polyline = L.polyline(trail, { color: 'blue' }).addTo(map);
 
-            let plane = planes[planeID];
-            plane.marker.setLatLng(pos)
-                .bindPopup(`Plane ${planeID}<br>Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`);
-
-            plane.trail.push(pos);
-            if (plane.trail.length > MAX_TRAIL) plane.trail.shift();
-            plane.polyline.setLatLngs(plane.trail);
-
-            if (followMode) map.panTo(pos, { animate: true });
-        }
-
-        function getPlaneColor(id) {
-            const colors = ["blue","red","green","orange","purple","brown","pink"];
-            return colors[id % colors.length];
+                        if (followMode) map.panTo(pos, { animate: true });
+                    }
+                }
+            });
         }
     </script>
 </body>
