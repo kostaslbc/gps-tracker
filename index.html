@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ESP32 GPS Map BLE</title>
+    <title>GPS Trcaker Lora Wan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
@@ -63,7 +63,6 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         const EuropeBounds = [[34, 71],[65, -25]];
-
         let map = L.map('map', {
             maxBounds: EuropeBounds,
             maxBoundsViscosity: 1.0,
@@ -96,7 +95,7 @@
         document.getElementById('connectBtn').addEventListener('click', async () => {
             try {
                 bleDevice = await navigator.bluetooth.requestDevice({
-                    filters: [{ name: 'LoRaGPS' }],
+                    filters: [{ name: 'GPS Tracker' }],
                     optionalServices: [SERVICE_UUID]
                 });
                 const server = await bleDevice.gatt.connect();
@@ -162,3 +161,4 @@
     </script>
 </body>
 </html>
+
