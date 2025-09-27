@@ -59,6 +59,8 @@ Max distance achieved (at 500 m altitude) → 20km+ !
  3. 433 MHz (please check your local regulations)
 
 # Photos
+
+![Screenshot_2025-09-22-23-45-13-860_com android chrome](https://github.com/user-attachments/assets/7e55ea1f-62cb-4616-91a0-33f7c61de606)
 ![IMG_20250905_181709-EDIT](https://github.com/user-attachments/assets/d7cca124-4c34-4698-9a94-eae1d5b39b18)
 ![IMG_20250905_181648-EDIT (1)](https://github.com/user-attachments/assets/7f6fa0d4-9617-4ab7-aeae-7e8fdeb4b9ca)
 
