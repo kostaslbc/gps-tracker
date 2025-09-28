@@ -95,7 +95,7 @@
         document.getElementById('connectBtn').addEventListener('click', async () => {
             try {
                 bleDevice = await navigator.bluetooth.requestDevice({
-                    filters: [{ name: 'GPS Tracker' }],
+                    filters: [{ name: 'GPS TRACKER' }],
                     optionalServices: [SERVICE_UUID]
                 });
                 const server = await bleDevice.gatt.connect();
@@ -161,4 +161,5 @@
     </script>
 </body>
 </html>
+
 
