@@ -134,6 +134,32 @@
             document.getElementById('followBtn').innerText = "Follow: " + (followMode ? "ON" : "OFF");
         });
 
+function beep(duration = 200, frequency = 440, volume = 1, type = "sine") {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        gainNode.gain.value = volume;
+        oscillator.frequency.value = frequency;
+        oscillator.type = type;
+
+        oscillator.start();
+        setTimeout(() => {
+            oscillator.stop();
+            audioCtx.close();
+        }, duration);
+    } catch (e) {
+        console.warn("Beep failed:", e);
+    }
+}
+
+
+
+        
         function handleGPSData(event) {
             const decoder = new TextDecoder();
             const text = decoder.decode(event.target.value);
@@ -142,6 +168,8 @@
                     let [latStr, lngStr] = line.split(",");
                     const lat = parseFloat(latStr.trim());
                     const lng = parseFloat(lngStr.trim());
+                   
+
                     if (!isNaN(lat) && !isNaN(lng)) {
                         const pos = [lat, lng];
                         if (!marker) marker = L.marker(pos).addTo(map).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`).openPopup();
@@ -154,6 +182,7 @@
                         else polyline = L.polyline(trail, { color: 'blue' }).addTo(map);
 
                         if (followMode) map.panTo(pos, { animate: true });
+                         beep(); // short beep when GPS data received
                     }
                 }
             });
@@ -161,5 +190,6 @@
     </script>
 </body>
 </html>
+
 
 
