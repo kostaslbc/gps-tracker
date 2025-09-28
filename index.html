@@ -134,7 +134,7 @@
             document.getElementById('followBtn').innerText = "Follow: " + (followMode ? "ON" : "OFF");
         });
 
-function beep(duration = 200, frequency = 440, volume = 1, type = "sine") {
+function beep(duration = 400, frequency = 440, volume = 2, type = "sine") {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioCtx.createOscillator();
@@ -159,37 +159,40 @@ function beep(duration = 200, frequency = 440, volume = 1, type = "sine") {
 
 
 
+
         
         function handleGPSData(event) {
-            const decoder = new TextDecoder();
-            const text = decoder.decode(event.target.value);
-            text.split("\n").forEach(line => {
-                if (line.includes(",")) {
-                    let [latStr, lngStr] = line.split(",");
-                    const lat = parseFloat(latStr.trim());
-                    const lng = parseFloat(lngStr.trim());
-                   
+    const decoder = new TextDecoder();
+    const text = decoder.decode(event.target.value);
+    text.split("\n").forEach(line => {
+        if (line.includes(",")) {
+            let [latStr, lngStr] = line.split(",");
+            const lat = parseFloat(latStr.trim());
+            const lng = parseFloat(lngStr.trim());
+            if (!isNaN(lat) && !isNaN(lng)) {
+                const pos = [lat, lng];
+                if (!marker) marker = L.marker(pos).addTo(map).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`).openPopup();
+                else marker.setLatLng(pos).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`);
 
-                    if (!isNaN(lat) && !isNaN(lng)) {
-                        const pos = [lat, lng];
-                        if (!marker) marker = L.marker(pos).addTo(map).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`).openPopup();
-                        else marker.setLatLng(pos).bindPopup(`Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`);
+                trail.push(pos);
+                if (trail.length > MAX_TRAIL) trail.shift();
 
-                        trail.push(pos);
-                        if (trail.length > MAX_TRAIL) trail.shift();
+                if (polyline) polyline.setLatLngs(trail);
+                else polyline = L.polyline(trail, { color: 'blue' }).addTo(map);
 
-                        if (polyline) polyline.setLatLngs(trail);
-                        else polyline = L.polyline(trail, { color: 'blue' }).addTo(map);
+                if (followMode) map.panTo(pos, { animate: true });
 
-                        if (followMode) map.panTo(pos, { animate: true });
-                         beep(); // short beep when GPS data received
-                    }
-                }
-            });
+                beep(); // 🔔 Beep once per new position
+            }
+        }
+    });
+}
+
         }
     </script>
 </body>
 </html>
+
 
 
 
