@@ -10,7 +10,7 @@ Fpv planes, drones, cars  etc.
 
 # Hardware Needed
 1. Lora 32 - V3 (heltec Board) X2 .
-2. Any GPS module with Nmea protocol.
+2. Any GPS module with Ubx protocol (baud rate should be 57600).
 3. A single Buzzer.(optional)
 4. A lipo battery 1 cell (1000 up to 2000 mah).(optional)
 5. A plastic case.
@@ -23,7 +23,7 @@ Fpv planes, drones, cars  etc.
 
 3. Sender.
    
-   1. Connect GPS TX pin to PIN 20 of the lora board.
+   1. Connect GPS TX pin to PIN 20 and RX pin to PIN 21 of the lora board.
    2. Connect also GPS ground and Vcc to ground and Vcc of the lora board.
    3. Connect BUZZER to PIN 36 of the lora board.
    Power up with usb type C small power bank or one cell lipo (3.7 Volts), flash lora board with sender file and you are done !
